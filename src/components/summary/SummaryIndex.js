@@ -1,0 +1,27 @@
+import SumaryContent from "./SumaryContent";
+import {
+  SummaryContainer,
+  SummaryTabs,
+  SchoolTab,
+  InstitutionsTab,
+} from "./summaryIndexStyled";
+
+const SummaryIndex = () => {
+  return (
+    <SummaryContainer>
+      <SummaryTabs>
+        <SchoolTab>
+          <h5>For schools</h5>
+        </SchoolTab>
+        <InstitutionsTab>
+          <h5>For institutions</h5>
+          <h6>And parishes</h6>
+        </InstitutionsTab>
+      </SummaryTabs>
+
+      <SumaryContent />
+    </SummaryContainer>
+  );
+};
+
+export default SummaryIndex;
