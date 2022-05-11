@@ -1,3 +1,4 @@
+import SumaryContent from "./SumaryContent";
 import {
   SummaryContainer,
   SummaryTabs,
@@ -18,7 +19,7 @@ const SummaryIndex = () => {
         </InstitutionsTab>
       </SummaryTabs>
 
-      <div>resto</div>
+      <SumaryContent />
     </SummaryContainer>
   );
 };
