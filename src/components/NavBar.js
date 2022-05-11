@@ -6,9 +6,9 @@ import {
 } from "./navBarStyled";
 import faithLogo from "../assets/image/faith_logo_.svg";
 
-const NavBar = () => {
+const NavBar = ({scrollReached}) => {
   return (
-    <NavBarStyle>
+    <NavBarStyle scrollReached={scrollReached}>
       <div>
         <img src={faithLogo} alt="faith-logo" />
       </div>

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const HeroContainer = styled.div`
+position: relative;
   max-width: 1400px;
   min-height: 800px;
   display: flex;
