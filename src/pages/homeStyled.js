@@ -9,11 +9,10 @@ export const HeroSection = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 55px;
+  padding-top: ${(props) => (props.scrollReached ? "0px" : "55px")};
   padding-bottom: 50px;
   transition: all 0.3s ease-in-out;
   margin-bottom: 150px;
-  
 `;
 export const ImgLeft = styled.img`
   height: auto;

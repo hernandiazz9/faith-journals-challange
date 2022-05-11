@@ -9,12 +9,12 @@ export const NavBarStyle = styled.nav`
   position: fixed;
   z-index: 15;
   width: 100vw;
-  height: 80px;
+  height: ${(props) => (props.scrollReached ? "55px" : "80px")};
   top: 0;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   font-weight: 700;
-  background-color: #fcf2ea;
+  background-color: ${(props) => (props.scrollReached ? "#fff" : "#fcf2ea")};
   cursor: pointer;
 `;
 
