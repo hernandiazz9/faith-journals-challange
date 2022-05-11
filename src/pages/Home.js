@@ -1,16 +1,19 @@
 import churchImg from "../assets/image/church-home.png";
 import shoolImg from "../assets/image/school-home.png";
+import Hero from "../components/Hero";
 
-import { HomeContainer } from "./homeStyled";
-
+import { HeroSection, HomeSection, ImgLeft, ImgRight } from "./homeStyled";
 
 const Home = () => {
   return (
-    <HomeContainer>
-      <img src={churchImg} alt="church-home" />
-
-      <img src={shoolImg} alt="shool-home" />
-    </HomeContainer>
+    <HomeSection>
+      <HeroSection>
+        <ImgLeft src={churchImg} alt="church-home" />
+        <Hero />
+        <ImgRight src={shoolImg} alt="shool-home" />
+      </HeroSection>
+      
+    </HomeSection>
   );
 };
 
