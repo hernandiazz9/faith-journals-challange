@@ -16,24 +16,36 @@ const SummaryIndex = () => {
     setSummaryTabsData(summaryData);
   }, []);
 
-  const handleClick = () => {};
+  const handleClick = (isFirst) => {
+    setSummaryFirstTabShows(isFirst);
+  };
 
   return summaryTabsData ? (
     <SummaryContainer>
       <SummaryTabs>
-        <SchoolTab onClick={() => handleClick()}>
+        <SchoolTab
+          summaryFirstTabShows={summaryFirstTabShows}
+          onClick={() => handleClick(true)}
+        >
           <h5>For schools</h5>
         </SchoolTab>
-        <InstitutionsTab onClick={() => handleClick()}>
+        <InstitutionsTab
+          summaryFirstTabShows={summaryFirstTabShows}
+          onClick={() => handleClick(false)}
+        >
           <h5>For institutions</h5>
           <h6>And parishes</h6>
         </InstitutionsTab>
       </SummaryTabs>
-      {summaryFirstTabShows ? (
-        <SummaryContent summaryData={summaryTabsData.school} />
-      ) : (
-        <SummaryContent summaryData={summaryTabsData.institutions} />
-      )}
+
+      <SummaryContent
+      summaryFirstTabShows={summaryFirstTabShows}
+        summaryData={
+          summaryFirstTabShows
+            ? summaryTabsData.school
+            : summaryTabsData.institutions
+        }
+      />
     </SummaryContainer>
   ) : (
     "Loading ..."

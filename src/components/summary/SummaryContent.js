@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import {
   SummaryContentContainer,
@@ -12,14 +12,35 @@ import {
   TabText,
 } from "./summaryContentStyled";
 
-const SummaryContent = ({ summaryData }) => {
+const SummaryContent = ({ summaryData, summaryFirstTabShows }) => {
   const { subHead, subTags } = summaryData;
   const [tagSelected, setTagSelected] = useState(subTags[0]);
 
   const handleClick = (tag) => {
     setTagSelected(tag);
   };
-  console.log(tagSelected);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTagSelected((tag) =>
+        tag.id === subTags.length ? subTags[0] : subTags[tag.id]
+      );
+    }, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [subTags, tagSelected]);
+
+  useEffect(() => {
+    setTagSelected(subTags[0]);
+  }, [summaryFirstTabShows, subTags]);
+
+  // setInterval(() => {
+  //   if(widthBar>100){
+  //     widthBar = 0
+  //   }
+  //   console.log(widthBar);
+  //   widthBar++;
+  // }, 1000);
 
   return (
     <SummaryContentContainer>
@@ -27,12 +48,26 @@ const SummaryContent = ({ summaryData }) => {
       <SummaryContentSubTabs>
         {subTags.map((tag) => (
           <Fragment key={tag.id}>
-            <TabStyleContainer onClick={() => handleClick(tag)}>
+            <TabStyleContainer
+              isSchool={summaryData.name === "school"}
+              onClick={() => handleClick(tag)}
+              tagSelected={tagSelected.id === tag.id}
+            >
               <TagStyle>
-                <img src={tag.imageName} alt={tag.nameTag} />
+                {tag.imageName ? (
+                  <img src={tag.imageName} alt={tag.nameTag} />
+                ) : null}
                 <h6>{tag.nameTag}</h6>
               </TagStyle>
-              <ProgressBarStyled />
+              <ProgressBarStyled>
+                <div
+                  style={{
+                    width: `${tagSelected.id === tag.id ? "100%" : "0"}`,
+                    height: "100%",
+                    backgroundColor: `red`,
+                  }}
+                />
+              </ProgressBarStyled>
             </TabStyleContainer>
           </Fragment>
         ))}

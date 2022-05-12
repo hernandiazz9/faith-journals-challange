@@ -23,14 +23,14 @@ export const SummaryContentSubTabs = styled.div`
 
 export const TabStyleContainer = styled.div`
   height: 90px;
-  width: 30%;
+  width: ${(props) => (props.isSchool ? "30%" : "18%")};
+  margin: ${(props) => (props.isSchool ? "0 10px 20px" : "0 5px 20px")};
   max-width: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 8px;
-  margin: 0 10px 20px;
   box-sizing: border-box;
   padding: 0 20px;
   cursor: pointer;
@@ -39,12 +39,10 @@ export const TabStyleContainer = styled.div`
   transition: border-color 0.3s ease;
   box-shadow: 0 0 0 2px transparant;
   opacity: 1;
+  box-shadow: ${(props) => props.tagSelected && "0 0 0 2px #064149"};
+
   :hover {
     border-color: #064149;
-  }
-  :focus {
-    box-shadow: 0 0 0 2px #064149;
-    opacity: 1;
   }
 `;
 
@@ -72,6 +70,11 @@ export const ProgressBarStyled = styled.div`
   background-color: #e9e9e9;
 `;
 
+export const ProgressBar = styled.div`
+  background-color: red;
+  width: ${(props) => `${props.widthBar}%`};
+  height: 100%;
+`;
 export const TabsContent = styled.div`
   width: 85vw;
   max-width: 1000px;

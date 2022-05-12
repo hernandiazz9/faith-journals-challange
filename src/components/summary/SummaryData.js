@@ -1,5 +1,6 @@
 export const summaryData = {
   school: {
+    name:'school',
     subHead:
       "Faith Journals is a collaborative writing software that uses a creative pedagogy that has been proven to inspire students to write about Sacred Scripture and grow closer to God, while simultaneously enhancing their writing proficiency.",
     subTags: [
@@ -36,6 +37,7 @@ export const summaryData = {
     ],
   },
   institutions: {
+    name:'institution',
     subHead:
       "Faithcademy provides a complete and simple solution to faith formation allowing private content delivery and interaction between instructors and group participants.",
     subTags: [
