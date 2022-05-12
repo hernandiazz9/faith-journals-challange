@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const SumaryContentContainer = styled.div`
+export const SummaryContentContainer = styled.div`
   width: 80vw;
   max-width: 950px;
   margin: 50px auto;
@@ -13,7 +13,7 @@ export const SumaryContentContainer = styled.div`
   }
 `;
 
-export const SumaryContentTabs = styled.div`
+export const SummaryContentTabs = styled.div`
   display: flex;
   justify-content: center;
   width: 95%;

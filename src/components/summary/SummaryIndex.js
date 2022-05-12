@@ -1,16 +1,23 @@
-import SumaryContent from "./SumaryContent";
+import SummaryContent from "./SummaryContent";
 import {
   SummaryContainer,
   SummaryTabs,
   SchoolTab,
   InstitutionsTab,
 } from "./summaryIndexStyled";
+import { summarySchoolsData } from "./SummaryData";
+import { summaryInstitutions } from "./SummaryData";
 
 const SummaryIndex = () => {
+
+  const handleClick = () =>{
+    
+  }
+
   return (
     <SummaryContainer>
       <SummaryTabs>
-        <SchoolTab>
+        <SchoolTab onClick={handleClick}>
           <h5>For schools</h5>
         </SchoolTab>
         <InstitutionsTab>
@@ -19,7 +26,7 @@ const SummaryIndex = () => {
         </InstitutionsTab>
       </SummaryTabs>
 
-      <SumaryContent />
+      <SummaryContent />
     </SummaryContainer>
   );
 };

@@ -1,22 +1,22 @@
-import { SumaryContentContainer,SumaryContentTabs } from "./sumaryContentStyled";
+import { SummaryContentContainer,SummaryContentTabs } from "./summaryContentStyled";
 
-const SumaryContent = () => {
+const SummaryContent = () => {
   return (
-    <SumaryContentContainer>
+    <SummaryContentContainer>
       <p>
         Faith Journals is a collaborative writing software that uses a creative
         pedagogy that has been proven to inspire students to write about Sacred
         Scripture and grow closer to God, while simultaneously enhancing their
         writing proficiency.
       </p>
-      <SumaryContentTabs>
+      <SummaryContentTabs>
         <div>Read</div>
         <div>Reflect & write</div>
         <div>Grow</div>
-      </SumaryContentTabs>
+      </SummaryContentTabs>
       <div></div>
-    </SumaryContentContainer>
+    </SummaryContentContainer>
   );
 };
 
-export default SumaryContent;
+export default SummaryContent;
