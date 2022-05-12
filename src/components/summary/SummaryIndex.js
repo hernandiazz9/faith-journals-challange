@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import SummaryContent from "./SummaryContent";
 import {
   SummaryContainer,
@@ -5,29 +7,36 @@ import {
   SchoolTab,
   InstitutionsTab,
 } from "./summaryIndexStyled";
-import { summarySchoolsData } from "./SummaryData";
-import { summaryInstitutions } from "./SummaryData";
+import { summaryData } from "./SummaryData";
 
 const SummaryIndex = () => {
+  const [summaryFirstTabShows, setSummaryFirstTabShows] = useState(true);
+  const [summaryTabsData, setSummaryTabsData] = useState();
+  useEffect(() => {
+    setSummaryTabsData(summaryData);
+  }, []);
 
-  const handleClick = () =>{
-    
-  }
+  const handleClick = () => {};
 
-  return (
+  return summaryTabsData ? (
     <SummaryContainer>
       <SummaryTabs>
-        <SchoolTab onClick={handleClick}>
+        <SchoolTab onClick={() => handleClick()}>
           <h5>For schools</h5>
         </SchoolTab>
-        <InstitutionsTab>
+        <InstitutionsTab onClick={() => handleClick()}>
           <h5>For institutions</h5>
           <h6>And parishes</h6>
         </InstitutionsTab>
       </SummaryTabs>
-
-      <SummaryContent />
+      {summaryFirstTabShows ? (
+        <SummaryContent summaryData={summaryTabsData.school} />
+      ) : (
+        <SummaryContent summaryData={summaryTabsData.institutions} />
+      )}
     </SummaryContainer>
+  ) : (
+    "Loading ..."
   );
 };
 
