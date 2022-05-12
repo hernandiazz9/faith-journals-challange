@@ -31,45 +31,45 @@ export const SummaryTabs = styled.div`
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
+
+    :before {
+      content: "";
+      height: 100px;
+      width: 105px;
+      transform: rotate(-10deg);
+      position: absolute;
+      bottom: -20px;
+      right: 20px;
+    }
+    h5 {
+      color: #064149;
+      font-weight: 700;
+      font-size: 24px;
+      margin: 0;
+    }
+    :hover {
+      border-color: #064149;
+    }
   }
 `;
 export const SchoolTab = styled.div`
+  border-color: ${(props) => props.summaryFirstTabShows && "#064149"};
+
+  box-shadow: ${(props) => props.summaryFirstTabShows && " 0 0 0 1px #064149"};
+
   :before {
-    content: "";
-    height: 100px;
-    width: 105px;
     background: url("https://faith-journals.com/static/media/school.9a332bb9.svg")
       no-repeat 50% / contain;
-    transform: rotate(-10deg);
-    position: absolute;
-    bottom: -20px;
-    right: 20px;
-  }
-  h5 {
-    color: #064149;
-    font-weight: 700;
-    font-size: 24px;
-    margin: 0;
   }
 `;
 export const InstitutionsTab = styled.div`
+  border-color: ${(props) => !props.summaryFirstTabShows && "#064149"};
+
+  box-shadow: ${(props) => !props.summaryFirstTabShows && " 0 0 0 1px #064149"};
+
   :before {
-    content: "";
-    height: 100px;
-    width: 105px;
-    background: url(/static/media/school.9a332bb9.svg) no-repeat 50% / contain;
-    transform: rotate(-10deg);
-    position: absolute;
-    bottom: -20px;
-    right: 20px;
-    background: url(https://faith-journals.com/static/media/school.9a332bb9.svg)
+    background: url("https://faith-journals.com/static/media/church_coloured.dbbfb4c4.png")
       no-repeat 50% / contain;
-  }
-  h5 {
-    color: #064149;
-    font-weight: 700;
-    font-size: 24px;
-    margin: 0;
   }
   h6 {
     font-size: 17px;
